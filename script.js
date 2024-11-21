@@ -36,4 +36,3 @@ document.querySelector('.btn-equal').addEventListener('click', () => {
     inputField.innerHTML = eval(inputField.innerHTML)
 });
 
-g

@@ -87,13 +87,15 @@ document.querySelector('.btn-plus-minus').addEventListener('click', () => {
 
 for (let i = 0; i <= 9; i++) {    
     document.querySelector(`.btn-${i}`).addEventListener('click', () => {
-        if (inputField.innerHTML === '0' || isEqual) {
-            isEqual = false;
-            inputField.innerHTML = `${i}`;
-        }
-        else { 
-            inputField.innerHTML += `${i}`;
-        }
+        if (inputField.innerHTML.length < 10) { 
+            if (inputField.innerHTML === '0' || isEqual) {
+                isEqual = false;
+                inputField.innerHTML = `${i}`;
+            }
+            else { 
+                inputField.innerHTML += `${i}`;
+            }
+        }        
     });  
 }
 

@@ -6,11 +6,13 @@ let isDot = false;
 document.querySelector('.btn-AC').addEventListener('click', () => { inputField.innerHTML = '0' });
 
 document.querySelector('.btn-dot').addEventListener('click', () => {
-    if (inputField.innerHTML.slice(-1) === '.' || inputField.innerHTML.includes('.') && !isOperation) {
+    if (isDot && !isOperation) {
         inputField.innerHTML = inputField.innerHTML;
     }
     else {
         inputField.innerHTML += '.';
+        isDot = true;
+        isOperation = false;
     }
 });
 
@@ -22,7 +24,8 @@ document.querySelector('.btn-mult').addEventListener('click', () => {
         inputField.innerHTML += '*';
     }
     isEqual = false;
-    isOperation = true;    
+    isDot = false; 
+    isOperation = true;
 });
 
 document.querySelector('.btn-div').addEventListener('click', () => {
@@ -33,6 +36,8 @@ document.querySelector('.btn-div').addEventListener('click', () => {
         inputField.innerHTML += '/';
     }
     isEqual = false;
+    isDot = false; 
+    isOperation = true;
 });
 
 document.querySelector('.btn-add').addEventListener('click', () => {
@@ -43,6 +48,8 @@ document.querySelector('.btn-add').addEventListener('click', () => {
         inputField.innerHTML += '+';
     }
     isEqual = false;
+    isDot = false; 
+    isOperation = true;
 });
 
 document.querySelector('.btn-sub').addEventListener('click', () => {
@@ -53,6 +60,8 @@ document.querySelector('.btn-sub').addEventListener('click', () => {
         inputField.innerHTML += '-';
     }
     isEqual = false;
+    isDot = false; 
+    isOperation = true;
 });
 
 document.querySelector('.btn-del').addEventListener('click', () => {
@@ -90,6 +99,8 @@ for (let i = 0; i <= 9; i++) {
 
 document.querySelector('.btn-equal').addEventListener('click', () => {
     isEqual = true;
+    isOperation = false;
+    isDot = false;
     inputField.innerHTML = eval(inputField.innerHTML)
 });
 
